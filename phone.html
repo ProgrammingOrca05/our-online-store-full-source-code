@@ -1,0 +1,76 @@
+{% extends "base_product.html" %}
+
+{% block content %}
+
+<div class="container-fluid m-0 p-0">
+    <div class="row g-0 d-flex justify-content-between flex-wrap" >
+        <!-- Left column with carousel -->
+        <div class="col-12 col-md-5 m-0 p-0 d-flex">
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for img in images %}
+                    <div class="carousel-item{% if loop.first %} active{% endif %}">
+                        <img src="{{ url_for('static', filename='images/' + img.image_name) }}"
+                             class="d-block w-100"
+                             alt="Product Image {{ loop.index }}">
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon border rounded-5 border-4 border-dark" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next"  type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon border rounded-5 border-4 border-dark" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Middle column -->
+        <div class="col-12 col-md-5 p-2 border-start rounded-5 border-info border-2">
+            <!-- Product features, price, etc. go here -->
+             <div class="m-2 ps-4 pb-4">
+            <h1 class="fw-bold text-dark m-4">{{product.name}}</h1>
+            <p class="fw-bold text-dark m-2">Price: </p>
+            <h2 class="fw-bold text-danger m-2">{{ product.price }}$</h2>
+            <div class="text-warning border-start border-primary border-4 p-2">
+                {% for i in range(1, 6) %}
+                    {% if i <= product.rating %}
+                        <i class="bi bi-star-fill"></i>
+                    {% else %}
+                        <i class="bi bi-star"></i>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            </div>
+            
+            <div class="m-2 ps-2 pb-2">
+                <div class="border-start border-primary border-4 p-2" >
+                    <h5 class="fw-bold text-secondary m-2">Color <i class="bi bi-circle-fill" style="color: {{product.color}};" title="Black"></i></h5>
+
+
+                </div>
+
+                <h4 class="fw-bold text-secondary m-2">Features: </h4>
+                <p class=" fw-bold text-secondary m-2">{{ product.features }}</p>
+            </div>
+            <div class="m-2 ps-2 pb-2">
+                <h6 class="fw-bold text-secondary m-2">Description:</h6>
+                <p class="text-secondary m-2">{{ product.description }}</p>
+            </div>
+        </div>
+
+        <!-- Right column -->
+        <div class="col-12 col-md-2">
+            <!-- Add to cart, rating, etc. go here -->
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
