@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+{% block title %}product page {% endblock %}
+{% block content %}
+    {% if product.category=='fashion' %}
+    <section id="prodetails" class="section-p1">
+        <div class="single-pro-image">
+            <img src="{{url_for('static',filename=product_image.image_name)}}" width="100%" id="mainimage" alt="Main Product Image">
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="{{url_for('static',filename=product_image.image_name)}}" width="100%" class="small-img" alt="Product Thumbnail 1">
+                </div>
+                {% for img in imgs_fashion[:3] %}
+                <div class="small-img-col">
+                    <img src="{{url_for('static',filename=img)}}" width="100%" class="small-img" alt="Product Thumbnail 2">
+                </div>
+               {%endfor%}
+            </div>
+        </div>
+        <div id="single-pro-details">
+            <h6 id="product-category">{{product.category}}</h6>
+            <h4 id="product-name">{{product.name}}</h4>
+            <h2 id="product-price">${{ product.price }}</h2>
+            <select id="size-selector">
+                <option>Select Size</option>
+                <option>XS</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+                <option>XXL</option>
+            </select>
+            <input type="number" value="1" min="1" id="quantity">
+            <button class="normal">Add to Cart</button>
+            <h4>Product Details</h4>
+            <span id="product-description">
+                "Gildan Ultra Cotton Tee"
+                (To the tune of a quick, upbeat chant or rap)
+
+                ♪ 6-ounce cotton, soft and strong,
+                Classic fit—wear it all day long!
+                Taped neck, shoulders just right,
+                Seamless collar—clean and tight.
+
+                Colors galore, pick your shade,
+                Comfort built to never fade.
+                Ultra tee, oh so sweet,
+                Gildan's got you lookin' neat! ♪
+            </span>
+        </div>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2 style="margin-bottom: 10px;">Featured Products</h2>
+        <p style="margin-bottom: 50px;">Check out these other great products!</p>
+         <div class="pro-container">
+        {% set count = 0 %}
+        {% for item in products %}
+        {% if item.category=='fashion' %}
+        {% if count < 4 %}
+        <form action="{{ url_for('detailspage') }}" method="POST" class="pro-form">
+            <input type="hidden" name="product_id" value="{{ item.id }}">
+            <button type="submit" class="pro-button">
+                <div class="pro">
+                    <img src="{{url_for('static',filename=item.image_name)}}" alt="{{ item.name }}" class="pro-image" />
+                    <div class="des">
+                        <span>{{ item.category }}</span>
+                        <h5>{{ item.name }}</h5>
+                        <h4>{{ item.price }}</h4>
+                    </div>
+                    <img src="{{ url_for('static', filename='images/cart.png') }}" class="cart1" alt="add to cart" />
+                </div>
+            </button>
+        </form>
+        {% set count = count+1 %}
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+       
+    </div>
+    </section>
+    {% endif %}
+
+
+
+    {% if product.category=='tech' %}
+    <section id="prodetails-tech" class="section-p1">
+        <div class="single-pro-image-tech">
+            <img src="{{url_for('static',filename=product_image.image_name)}}" width="100%" id="mainimage" alt="Main Product Image">
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="{{url_for('static',filename=product_image.image_name)}}" width="100%" class="small-img" alt="Product Thumbnail 1">
+                </div>
+                {% for img in imgs_tech[:3] %}
+                <div class="small-img-col">
+                    <img src="{{url_for('static',filename=img)}}" width="100%" class="small-img" alt="Product Thumbnail 2">
+                </div>
+               {%endfor%}
+            </div>
+        </div>
+        <div id="single-pro-details">
+            <h6 id="product-category">{{product.category}}</h6>
+            <h4 id="product-name">{{product.name}}</h4>
+            <h2 id="product-price">${{ product.price }}</h2>
+            <h4 id="product-name" >{{ product.color}} </h4>
+            <input type="number" value="1" min="1" id="quantity">
+            <button class="normal">Add to Cart</button>
+            <h4>Product features</h4>
+            <span id="product-description">
+              {{product.features}}
+            </span>
+        </div>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2 style="margin-bottom: 10px;">Featured Products</h2>
+        <p style="margin-bottom: 50px;">Check out these other great products!</p>
+         <div class="pro-container">
+        {% set count = 0 %}
+        {% for item in products %}
+        {% if item.category=='tech' %}
+        {% if count < 4 %}
+        <form action="{{ url_for('detailspage') }}" method="POST" class="pro-form">
+            <input type="hidden" name="product_id" value="{{ item.id }}">
+            <button type="submit" class="pro-button">
+                <div class="pro">
+                    <img src="{{url_for('static',filename=item.image_name)}}" alt="{{ item.name }}" class="pro-image" />
+                    <div class="des">
+                        <span>{{ item.category }}</span>
+                        <h5>{{ item.name }}</h5>
+                        <h4>{{ item.price }}</h4>
+                    </div>
+                    <img src="{{ url_for('static', filename='images/cart.png') }}" class="cart1" alt="add to cart" />
+                </div>
+            </button>
+        </form>
+        {% set count = count+1 %}
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        
+    </div>
+    </section>
+    {% endif %}
+
+
+
+
+    {% if product.category=='tool' %}
+    <section id="prodetails-tech" class="section-p1">
+        <div class="single-pro-image-tech">
+            <img src="{{url_for('static',filename=product_image.image_name)}}" width="100%" id="mainimage" alt="Main Product Image">
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="{{url_for('static',filename=product_image.image_name)}}" width="100%" class="small-img" alt="Product Thumbnail 1">
+                </div>
+                {% for img in imgs_tool %}
+                <div class="small-img-col">
+                    <img src="{{url_for('static',filename=img)}}" width="100%" class="small-img" alt="Product Thumbnail 2">
+                </div>
+               {%endfor%}
+            </div>
+        </div>
+        <div id="single-pro-details">
+            <h6 id="product-category">{{product.category}}</h6>
+            <h4 id="product-name">{{product.name}}</h4>
+            <h2 id="product-price">${{ product.price }}</h2>
+            <h4 id="product-name" >{{ product.color}} </h4>
+            <input type="number" value="1" min="1" id="quantity">
+            <button class="normal">Add to Cart</button>
+            <h4>Product features</h4>
+            <span id="product-description">
+              {{product.features}}
+            </span>
+        </div>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2 style="margin-bottom: 10px;">Featured Products</h2>
+        <p style="margin-bottom: 50px;">Check out these other great products!</p>
+         <div class="pro-container">
+        {% set count = 0 %}
+        {% for item in products %}
+        {% if item.category=='tool' %}
+        {% if count < 4 %}
+        <form action="{{ url_for('detailspage') }}" method="POST" class="pro-form">
+            <input type="hidden" name="product_id" value="{{ item.id }}">
+            <button type="submit" class="pro-button">
+                <div class="pro">
+                    <img src="{{url_for('static',filename=item.image_name)}}" alt="{{ item.name }}" class="pro-image" />
+                    <div class="des">
+                        <span>{{ item.category }}</span>
+                        <h5>{{ item.name }}</h5>
+                        <h4>{{ item.price }}</h4>
+                    </div>
+                    <img src="{{ url_for('static', filename='images/cart.png') }}" class="cart1" alt="add to cart" />
+                </div>
+            </button>
+        </form>
+        {% set count = count+1 %}
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        
+    </div>
+    </section>
+    {% endif %}
+
+{% endblock %}
+

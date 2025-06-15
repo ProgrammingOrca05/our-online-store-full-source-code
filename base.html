@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <title>{% block title %}My Site{% endblock %}</title>
+  <link rel="icon" type="image/x-icon" href="/static/images/r_logo.png">
+</head>
+<body>
+  <section id="header">
+    <a href="{{url_for('homepage')}}"><img src="static/images/r_logo.png" class="logo" alt="logo" /></a>
+    <div>
+      <ul id="navbar">
+        <li><a class="{% if active_page=='home' %}active{% endif %}" href="{{url_for('homepage')}}">HOME</a></li>
+        <li><a class="{% if active_page=='shop' %}active{% endif %}" href="{{url_for('shoppage')}}">SHOP</a></li>
+        <li><a class="{% if active_page=='phone' %}active{% endif %}" href="{{url_for('phonespage')}}">PHONE</a></li>
+        <li><a class="{% if active_page=='fashion' %}active{% endif %}" href="{{url_for('fashionpage')}}">FASHION</a></li>
+        <li><a class="{% if active_page=='blog' %}active{% endif %}" href="{{url_for('blogpage')}}">BLOG</a></li>
+        <li><a class="{% if active_page=='about' %}active{% endif %}" href="{{url_for('aboutpage')}}">ABOUT</a></li>
+        <li><a class="{% if active_page=='contact' %}active{% endif %}" href="{{url_for('contactpage')}}">CONTACT US</a></li>
+        <li><a class="{% if active_page=='cart' %}active{% endif %}" href="{{url_for('cartpage')}}"><img src="static/images/cart.png" id="cart" alt="cart" /></a></li>
+      </ul>
+      <div id="mobile-menu-icon">&#9776;</div>
+    </div>
+  </section>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <section id="newsletter" class="section-p1 section-m1">
+    <div class="newstext">
+      <h4>sign up for newsletter</h4>
+      <p>
+        get email updates about our latest shop and <span>special offers</span>.
+      </p>
+    </div>
+    <div class="form">
+      <input type="email" placeholder="your email address" />
+      <button class="normal"><a href="{{url_for('loginpage')}}" >sign up</a></button>
+    </div>
+  </section>
+
+  <footer class="section-p1">
+    <div class="col">
+      <img src="static/images/r_logo.png" alt="logo" style="width: 100px" />
+      <h3>contact</h3>
+      <p><strong>Address: </strong>Lorem ipsum dolor sit amet.</p>
+      <p><strong>Phone: </strong>19092-9291-18282</p>
+      <p><strong>Hours: </strong>Lorem ipsum dolor sit amet.</p>
+      <div class="icons">
+        <h3>follow us</h3>
+        <div class="social-icons">
+            <a href="#"><img src="static/images/icons/facebook.png" class="social" alt="facebook" /></a>
+            <a href="#"><img src="static/images/icons/x.png" class="social" alt="twitter" /></a>
+            <a href="#"><img src="static/images/icons/insta.png" class="social" alt="instagram" /></a>
+            <a href="#"><img src="static/images/icons/youtube.png" class="social" alt="youtube" /></a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <h3>about</h3>
+      <a href="{{url_for('aboutpage')}}">about us</a>
+      <a href="#">delivary information</a>
+      <a href="{{url_for('policypage')}}">privacy policy</a>
+      <a href="#">terms & conditions</a>
+      <a href="{{url_for('contactpage')}}">contact us</a>
+    </div>
+    <div class="col">
+      <h3>my account</h3>
+      <a href="{{url_for('loginpage')}}">sign in</a>
+      <a href="{{url_for('cartpage')}}">view cart</a>
+      <a href="#">my wishlist</a>
+      <a href="#">track my order</a>
+      <a href="#">help</a>
+    </div>
+    <div class="copyright">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus,
+        aliquam.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const mobileMenuIcon = document.getElementById("mobile-menu-icon");
+    const navbar = document.getElementById("navbar");
+    mobileMenuIcon.addEventListener("click", () => {
+      navbar.classList.toggle("active");
+    });
+  </script>
+</body>
+</html>
+ 

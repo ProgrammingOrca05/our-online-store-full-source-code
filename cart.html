@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block title %}Cart page{% endblock %}
+{% block content %}
+    <!-- Header Section -->
+    <section id="page-header" class="cart-page">
+        <h2>#Lets_shop</h2>
+        <p>We love to see you again here!</p>
+    </section>
+
+    <!-- Cart Table -->
+    <section id="cart-section" class="section-p1">
+        <div class="responsive-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Remove</th>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#"><i class="far fa-times-circle"></i></a></td>
+                    <td><img src="static/images/products/f1.jpg" alt="product image"></td>
+                    <td>Cartoon Astronaut T-Shirt</td>
+                    <td>$118.19</td>
+                    <td><input type="number" value="1" min="1"></td>
+                    <td>$118.19</td>
+                </tr>
+                <tr>
+                    <td><a href="#"><i class="far fa-times-circle"></i></a></td>
+                    <td><img src="static/images/products/f2.jpg" alt="product image"></td>
+                    <td>Cartoon Astronaut T-Shirt</td>
+                    <td>$118.19</td>
+                    <td><input type="number" value="1" min="1"></td>
+                    <td>$118.19</td>
+                </tr>
+                <tr>
+                    <td><a href="#"><i class="far fa-times-circle"></i></a></td>
+                    <td><img src="static/images/products/f3.jpg" alt="product image"></td>
+                    <td>Cartoon Astronaut T-Shirt</td>
+                    <td>$118.19</td>
+                    <td><input type="number" value="1" min="1"></td>
+                    <td>$118.19</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </section>
+
+    <!-- Cart Summary -->
+    <section id="cart-add" class="section-p1">
+        <div id="coupon">
+            <h3>Apply Coupon</h3>
+            <div class="coupon-box">
+                <input type="text" placeholder="Enter your coupon code">
+                <button class="normal">Apply</button>
+            </div>
+        </div>
+
+        <div id="subtotal">
+            <h3>Cart Totals</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td>$354.57</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong>$354.57</strong></td>
+                </tr>
+            </table>
+            <button class="normal">Proceed to Checkout</button>
+        </div>
+    </section>
+{% endblock %}
+ 

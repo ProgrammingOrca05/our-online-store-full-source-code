@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}blog page {% endblock %}
+{% block content %}
+    <section id="page-header" class="blog-header">
+        
+        <h2>#readmore</h2>
+        
+        <p>Read all case studies about our products!</p>
+        
+    </section>
+      
+
+
+    <section id="blog">
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="{{url_for('static',filename='images/icons/b1.jpg')}}" alt="">
+            </div>
+            <div class="blog-details">
+                <h4>the cotton-jersey zip-up Hoodie</h4>
+                 <p>Kickstarter man braid godard coloring book. Raclette waco selfies yr wolf chartreuse hexagon irony,</p>
+                 <a href="#">continue reading</a>
+            </div>
+            <h1>13/01</h1>
+        </div>
+          <div class="blog-box">
+            <div class="blog-img">
+                <img src="{{url_for('static',filename='images/icons/b2.jpg')}}" alt="">
+            </div>
+            <div class="blog-details">
+                <h4>the cotton-jersey zip-up Hoodie</h4>
+                 <p>Kickstarter man braid godard coloring book. Raclette waco selfies yr wolf chartreuse hexagon irony,</p>
+                 <a href="#">continue reading</a>
+            </div>
+            <h1>13/01</h1>
+        </div>
+          <div class="blog-box">
+            <div class="blog-img">
+                <img src="{{url_for('static',filename='images/icons/b3.jpg')}}" alt="">
+            </div>
+            <div class="blog-details">
+                <h4>the cotton-jersey zip-up Hoodie</h4>
+                 <p>Kickstarter man braid godard coloring book. Raclette waco selfies yr wolf chartreuse hexagon irony,</p>
+                 <a href="#">continue reading</a>
+            </div>
+            <h1>13/01</h1>
+        </div>
+          <div class="blog-box">
+            <div class="blog-img">
+                <img src="{{url_for('static',filename='images/icons/b4.jpg')}}" alt="">
+            </div>
+            <div class="blog-details">
+                <h4>the cotton-jersey zip-up Hoodie</h4>
+                 <p>Kickstarter man braid godard coloring book. Raclette waco selfies yr wolf chartreuse hexagon irony,</p>
+                 <a href="#">continue reading</a>
+            </div>
+            <h1>13/01</h1>
+        </div>
+        
+    </section>
+
+    <section id="pagination"  class="section-p1"  > 
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#"><i class="fal fa-long-arrow-alt-rigth"></i>></a>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Phones page{% endblock %}
+{% block content %}
+    <section id="page-header" class="phone-page">
+
+        <h2>#stayhome</h2>
+
+        <p>save more with coupons& up to 70% off!<strong style="color:cadetblue;">70% off!!</strong></p>
+
+    </section>
+
+<section id="product1" class="section-p1">
+    <div class="pro-container">
+        {% for i in range(4) %}
+        {% for product in products %}
+        {% if product.category=='tech' %}
+        <form action="{{ url_for('detailspage') }}" method="POST" class="pro-form">
+            <input type="hidden" name="product_id" value="{{ product.id }}">
+            <button type="submit" class="pro-button">
+                <div class="pro">
+                    <img src="{{url_for('static',filename=product.image_name)}}" alt="{{ product.name }}" class="pro-image" />
+                    <div class="des">
+                        <span>{{ product.category }}</span>
+                        <h5>{{ product.name }}</h5>
+                        <h4>{{ product.price }}</h4>
+                    </div>
+                    <img src="{{ url_for('static', filename='images/cart.png') }}" class="cart1" alt="add to cart" />
+                </div>
+            </button>
+        </form>
+        {% endif %}
+        {% endfor %}
+        {%endfor%}
+    </div>
+</section>
+
+
+    <section id="pagination" class="section-p1">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#"><i class="fal fa-long-arrow-alt-rigth"></i>></a>
+    </section>
+{% endblock %}
+
